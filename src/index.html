@@ -1,29 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <title>Domain Name Generator</title>
+
+    <script>
+      function generateDomainName() {
+        let firstPart = [
+          "tech",
+          "web",
+          "data",
+          "cloud",
+          "code",
+          "byte",
+          "pixel",
+          "net",
+          "app",
+          "online"
+        ];
+        let secondPart = [
+          "hub",
+          "genius",
+          "world",
+          "zone",
+          "guru",
+          "planet",
+          "ninja",
+          "buzz",
+          "hive",
+          "link"
+        ];
+        let extensions = [".com", ".net", ".org", ".io", ".co"];
+
+        let firstIndex = Math.floor(Math.random() * firstPart.length);
+        let secondIndex = Math.floor(Math.random() * secondPart.length);
+        let extensionIndex = Math.floor(Math.random() * extensions.length);
+
+        let domainName =
+          firstPart[firstIndex] +
+          secondPart[secondIndex] +
+          extensions[extensionIndex];
+
+        return domainName;
+      }
+
+      function displayDomainName() {
+        let domainName = generateDomainName();
+        document.getElementById("domain").innerText = domainName;
+      }
+    </script>
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
-    </div>
+    <h1>Domain Name Generator</h1>
+    <p>Click the button below to generate a random domain name:</p>
+    <button onclick="displayDomainName()">Generate Domain Name</button>
+    <p id="domain"></p>
+    <script>
+      //src = "app.js";
+    </script>
   </body>
 </html>
